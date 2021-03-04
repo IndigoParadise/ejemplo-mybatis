@@ -25,5 +25,5 @@ public interface UsuarioRepository  {
     public Integer eliminarUsuario(@Param(ParameterConstans.ID) UUID id);
 
     @Update("UPDATE usuario SET nombreUsuario=#{usuario.nombreUsuario},apellidoPaterno=#{usuario.apellidoPaterno},balance=#{usuario.balance}")
-    public Integer actualizarUsuario(@Param(ParameterConstans.USUARIO)UsuarioDTO usuario);
+    public Integer actualizarUsuario(@Param(ParameterConstans.USUARIO)Usuario usuario);
 }

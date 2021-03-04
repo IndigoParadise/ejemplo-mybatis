@@ -58,18 +58,18 @@ public class UsuarioServiceImpl implements UsuarioService {
         Integer rowsAffected=usuarioRepository.eliminarUsuario(id);
         if (rowsAffected<=0){
             mensaje.setMensaje(Constants.NO_EXISTE_ELIMINAR);
-            return Util.createResponseEntity(mensaje,HttpStatus.INTERNAL_SERVER_ERROR);
+            return Util.createResponseEntity(mensaje,HttpStatus.NOT_FOUND);
         }
         mensaje.setMensaje(Constants.OPERACION_EXITOSA);
         return  Util.createResponseEntity(mensaje,HttpStatus.CREATED);
     }
     @Override
-    public ResponseEntity<StandardMessage> actualizarUsuario(UsuarioDTO usuario){
+    public ResponseEntity<StandardMessage> actualizarUsuario(Usuario usuario){
         StandardMessage mensaje= new StandardMessage();
         Integer rowsAffected=usuarioRepository.actualizarUsuario(usuario);
         if (rowsAffected<=0){
-            mensaje.setMensaje(Constants.NO_EXISTE_ELIMINAR);
-            return Util.createResponseEntity(mensaje,HttpStatus.INTERNAL_SERVER_ERROR);
+            mensaje.setMensaje(Constants.NO_EXISTE_ACTUALIZAR);
+            return Util.createResponseEntity(mensaje,HttpStatus.NOT_FOUND);
         }
         mensaje.setMensaje(Constants.OPERACION_EXITOSA);
         return  Util.createResponseEntity(mensaje,HttpStatus.CREATED);

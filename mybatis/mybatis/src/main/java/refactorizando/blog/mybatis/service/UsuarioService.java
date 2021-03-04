@@ -17,5 +17,5 @@ public interface UsuarioService {
 
     public ResponseEntity eliminarUsuario(UUID id);
 
-    public ResponseEntity actualizarUsuario(UsuarioDTO usuario);
+    public ResponseEntity actualizarUsuario(Usuario usuario);
 }
