@@ -77,8 +77,11 @@
 				<configuration>
 					<source>16</source>
 					<target>16</target>
+					<!--                    <release>16</release>-->
 					<fork>true</fork>
 					<compilerArgs>
+						<arg>--enable-preview</arg>
+						<arg>-Xlint:all</arg>
 						<arg>-J--add-opens=jdk.compiler/com.sun.tools.javac.code=ALL-UNNAMED</arg>
 						<arg>-J--add-opens=jdk.compiler/com.sun.tools.javac.comp=ALL-UNNAMED</arg>
 						<arg>-J--add-opens=jdk.compiler/com.sun.tools.javac.file=ALL-UNNAMED</arg>
@@ -90,6 +93,12 @@
 						<arg>-J--add-opens=jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED</arg>
 						<arg>-J--add-opens=jdk.compiler/com.sun.tools.javac.jvm=ALL-UNNAMED</arg>
 					</compilerArgs>
+					<!--for unmappable characters in classes-->
+					<encoding>UTF-8</encoding>
+					<showDeprecation>true</showDeprecation>
+					<showWarnings>true</showWarnings>
+					<!--for lombok annotations to resolve-->
+					<!--contradictory to maven, intelliJ fails with this-->
 					<annotationProcessorPaths>
 						<path>
 							<groupId>org.projectlombok</groupId>
